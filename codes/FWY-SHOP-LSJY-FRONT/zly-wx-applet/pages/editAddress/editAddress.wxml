@@ -1,0 +1,41 @@
+<!--pages/editAddress/editAddress.wxml-->
+<view class="ad-item" style="margin-top: 24rpx;">
+  <text>收货人</text>
+  <input class="ipt"	placeholder-style="color: rgba(0,0,0,0.4);" type="text" placeholder="请输入姓名" value="{{name}}"  bindinput="getNameInput"/>
+</view>
+<view class="ad-item" style="margin-bottom: 24rpx;">
+  <text>手机号码</text>
+  <text class="Fphone">+86</text>
+  <input class="ipt"	placeholder-style="color: rgba(0,0,0,0.4);" type="text" placeholder="请输入手机号码" value="{{phone}}" bindinput="getPhoneInput"/>
+</view>
+<view class="ad-item">
+  <text>所在地区</text>
+  <picker mode="multiSelector"bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range-key="districtName" range="{{multiArray}}">
+    <view class="picBox">
+      <text class="adCity" hidden="{{districtId}}">请选择省市区</text>
+      <text class="adCity" hidden="{{!districtId}}" style="color: rgba(0,0,0,0.6);">{{districtArray[0][districtIndex[0]].districtName}} {{districtArray[1][districtIndex[1]].districtName}} {{districtArray[2][districtIndex[2]].districtName}}</text>
+      <image class="arrow" src="/static/img/arrow.png" mode=""/>
+    </view>
+  </picker>
+</view>
+<view class="ad-item">
+  <text>详细地址</text>
+  <textarea class="iptarea" auto-height	placeholder-style="color: rgba(0,0,0,0.4);" type="text" placeholder="输入小区/写字楼" value="{{detailAddress}}"  bindinput="getDetailAddressInput"/>
+</view>
+<view class="ad-item">
+  <text>设为默认地址</text>
+  <switch class="swBtn" color="#FF5700" checked="{{defaultAddress}}" bindchange="switchDefaultAddressChange"/>
+</view>
+
+<view class="save-view" bindtap="toSave">{{userAddressId?'确认修改':'保存'}}</view>
+<view class="delete" bindtap="deleteFun" wx:if="{{userAddressId}}">删除</view>
+
+<view class="del-view" wx:if="{{delViewStatus}}">
+  <view class="del-box">
+    <text>确定要删除该地址吗?</text>
+    <view class="del-btn">
+      <text bindtap="cancelDel">取消</text>
+      <text bindtap="sureDel">确认</text>
+    </view>
+  </view>
+</view>

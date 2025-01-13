@@ -1,0 +1,37 @@
+<!--pages/template/template.wxml-->
+<!-- <import src="../template/template.wxml"/> -->
+<!-- @import "/pages/template/template.wxss"; -->
+<!-- <template is="baobei-view" data="{{...search}}"/> -->
+
+<template name="contentList">
+  <view class="article-box" wx:for="{{contentList}}" wx:key="contentId">
+    <view class="article-head">
+      <image src="{{item.headImg}}" data-userid="{{item.userId}}" catchtap="toPersonHome"></image>
+      <text data-userid="{{item.userId}}" catchtap="toPersonHome">{{item.nickName}}</text>
+      <image catchtap="handleShow" data-cid="{{item.contentId}}" src="/static/img/more.png"></image>
+    </view>
+    <view class="img-box" style="{{item.scale<1?'height:1000rpx':(item.scale>1?'height:562rpx':'')}}">
+      <image mode="aspectFill" src="{{item.imgUrlList[0]}}" style="width: 750rpx;height: auto;margin: 0 auto;" catchtap="toCirclesDetail" data-cid="{{item.contentId}}"></image>
+      <view wx:if="{{item.imgUrlList.length>1}}" class="swiper-num">
+        {{item.imgUrlList.length}}图
+      </view>
+    </view>
+    <view class="article-take">
+      <image class="take-dianzan" src="/static/img/like_s.png" wx:if="{{item.like}}" bindtap="contentCellikeFun" data-cid="{{item.contentId}}" data-idx="{{index}}"></image>
+      <image class="take-dianzan" src="/static/img/like_n.png" wx:else bindtap="contentlikeFun" data-cid="{{item.contentId}}" data-idx="{{index}}"></image>
+      <text class="take-dianzan-num">{{item.likeCount}}</text>
+      <image class="take-msg" src="/static/img/discuss.png" catchtap="toCirclesDetail" data-cid="{{item.contentId}}"></image>
+      <text class="take-dianzan-num">{{item.commentCount}}</text>
+      <button open-type="share" class="take-share-box" data-item="{{item}}">
+        <image class="take-share" src="/static/img/share.png"></image>
+      </button>
+    </view>
+    <view class="article-content" catchtap="toCirclesDetail" data-cid="{{item.contentId}}">{{item.content ? item.content : ''}}</view>
+    <view class="article-tag">
+      <view class="tag-item" wx:for="{{item.tagList}}" wx:for-item="itemTag" wx:key="itemTag">
+        <image src="/static/img/tag.png"></image>
+        <text>{{itemTag}}</text>
+      </view>
+    </view>
+  </view>
+</template>

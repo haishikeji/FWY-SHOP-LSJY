@@ -1,0 +1,68 @@
+<!--pages/personHome/personHome.wxml-->
+<view class="bg">
+  <image src="{{info.bg}}" alt=""/>
+  <image src="/static/img/back2.png" bindtap="back"></image>
+</view>
+<view class="per-box">
+  <image src="{{info.headImg}}" mode=""/>
+  <view hidden="{{info.focus}}" class="per-attent" bindtap="focusFun">关注</view>
+  <view hidden="{{!info.focus}}" class="per-attentend" bindtap="unfocusFun">已关注</view>
+  <view wx:if="{{userId==beVisitedUserId}}" class="per-push">发布动态</view>
+  <view class="per-name">{{info.nickName}}</view>
+  <view class="data-box">
+    <view class="per-data">
+      <text>{{info.fansNum}}</text>
+      <text>粉丝</text>
+    </view>
+    <text class="data-line"></text>
+    <view class="per-data">
+      <text>{{info.focusNum}}</text>
+      <text>关注</text>
+    </view>
+    <text class="data-line"></text>
+    <view class="per-data">
+      <text>{{info.commAndLike}}</text>
+      <text>转评赞</text>
+    </view>
+  </view>
+</view>
+
+<view class="con-head">
+  <view class="con-item">
+    <text>动态</text>
+    <text></text>
+  </view>
+</view>
+
+<import src="../template/template.wxml"/>
+<block wx:if="{{contentList.length!=0}}">
+  <template is="contentList" data="{{contentList}}"/>
+</block>
+<block wx:if="{{contentList.length==0 && userId!=beVisitedUserId}}">
+  <view class="nonedata-style">
+    <image src="/static/img/hemaNo.png"></image>
+    <text>TA选择了躺平，还未发布任何动态</text>
+  </view>
+</block>
+<block wx:if="{{contentList.length==0 && userId==beVisitedUserId}}">
+  <view class="nonedata-style">
+    <image src="/static/img/hemaNo.png"></image>
+    <text>躺平虽香, 但分享能找到同频的好友哦</text>
+    <view class="push-btn">去发布动态</view>
+  </view>
+</block>
+
+<view hidden="{{handleStatus}}" class="handle-box">
+  <view catchtap="handleShow" class="handle-bg"></view>
+  <view class="hadle-view">
+    <image catchtap="handleShow" src="/static/img/close2.png"></image>
+    <!-- <view class="handle-item">
+      <image src="/static/img/nolike.png"></image>
+      <text>不感兴趣</text>
+    </view> -->
+    <view class="handle-item" catchtap="toReport">
+      <image src="/static/img/jubao.png"></image>
+      <text>举报</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/report/report.wxml-->
+<view class="report-title">
+  请选择你想要举报的类型
+  <text style="color:#FF2323">*</text>
+</view>
+<view class="report-type">
+  <text wx:for="{{TypeList}}" wx:key="index" class="{{parmas.reportType==item.value?'report-type-check':''}}" data-value="{{item.value}}" bindtap="checkTypeFun">{{item.name}}</text>
+</view>
+<view class="more-title">
+  <text>举报描述</text>
+  <text>0/200</text>
+</view>
+<view class="content">
+  <textarea placeholder="提供更多信息有助于举报被快速处理" placeholder-style="color: rgba(0,0,0,0.4);" value="{{parmas.reason}}" bindinput="getbindinput"></textarea>
+</view>
+<view class="more-title">
+  <text>图片证据</text>
+  <text>最多三张</text>
+</view>
+<view class="img-box">
+  <view class="img-view" wx:for="{{imgList}}" wx:key="index">
+    <image src="{{item}}"></image>
+    <image src="/static/img/close5.png" bindtap="delFun" data-idx="{{index}}"></image>
+  </view>
+  <view class="img-upload" hidden="{{imgList.length>=3}}" bindtap="uploadImg">
+    <image src="/static/img/addArticle.png"></image>
+  </view>
+</view>
+<view class="submit-view">
+  <text bindtap="submitFun">提交</text>
+</view>

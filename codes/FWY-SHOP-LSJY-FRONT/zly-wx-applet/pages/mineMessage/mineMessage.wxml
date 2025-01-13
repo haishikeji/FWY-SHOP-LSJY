@@ -1,0 +1,25 @@
+<!--pages/mineMessage/mineMessage.wxml-->
+<view class="msg-box" style="margin: 24rpx 0;" bindtap="toDetail">
+  <image src="/static/img/mineMsg.png"></image>
+  <view>
+    <text>官方助手</text>
+    <text>{{info.sysMsg.content}}</text>
+  </view>
+  <view>{{info.sysMsg.createTime}}</view>
+</view>
+<view class="msg-box" bindtap="toMineLike">
+  <image src="/static/img/like.png"></image>
+  <view>
+    <text>点赞</text>
+    <text>{{info.likeMsg.sender.nickName}}赞了你的{{info.likeMsg.srcType==2?'圈子':'评论'}}</text>
+  </view>
+  <view>{{info.likeMsg.createTime}}</view>
+</view>
+<view class="msg-box" bindtap="toMineMoment">
+  <image src="/static/img/mineDiscuss.png"></image>
+  <view>
+    <text>评论和@</text>
+    <text>{{info.commentMsg.sender.nickName}}评论你的{{info.commentMsg.srcType==2?'圈子':'评论'}}</text>
+  </view>
+  <view>{{info.commentMsg.createTime}}</view>
+</view>

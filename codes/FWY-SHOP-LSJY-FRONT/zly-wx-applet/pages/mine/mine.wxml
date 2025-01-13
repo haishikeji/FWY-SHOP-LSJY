@@ -1,0 +1,53 @@
+<view class="head-view">
+  <image src="/static/img/my_bg.png"></image>
+  <image wx:if="{{userInfo.headImg}}" src="{{userInfo.headImg}}" bindtap="personMsg"></image>
+  <image wx:else src="/static/logo.png" bindtap="personMsg"></image>
+  <text>{{userInfo.nickName?userInfo.nickName:'***精酿'}}</text>
+</view>
+<!-- <view class="beer-hz">
+  <view class="hz-view" bindtap="toBadges">
+    <image src="/static/img/cjhz.png"></image>
+    <text>成就徽章</text>
+  </view>
+  <view></view>
+  <view class="hz-view" bindtap="toBadges">
+    <image src="/static/img/jnhz.png"></image>
+    <text>精酿徽章</text>
+  </view>
+</view> -->
+<!--  style="position: relative;z-index: 3;margin-top:-66rpx;" -->
+<view class="item-box" style="position: relative;z-index: 3;margin-top:-66rpx;">
+  <view class="item-view" bindtap="toMineMsg">
+    <image src="/static/img/message.png"></image>
+    <view>我的消息 
+      <block wx:if="{{userInfo.unreadMsgNum>0}}">
+        <text class="redDot"></text> <text class="msgDot">有{{userInfo.unreadMsgNum}}条未读消息</text> 
+      </block>
+    </view>
+    <image src="/static/img/arrow.png"></image>
+  </view>
+  <view class="item-view" bindtap="toMinePush">
+    <image src="/static/img/add.png"></image>
+    <view>我的气泡</view>
+    <image src="/static/img/arrow.png"></image>
+  </view>
+</view>
+<view class="item-box">
+  <view class="item-view" bindtap="toMineOrder">
+    <image src="/static/img/list.png"></image>
+    <view>我的订购</view>
+    <image src="/static/img/arrow.png"></image>
+  </view>
+  <view class="item-view" bindtap="toMineAd">
+    <image src="/static/img/location2.png"></image>
+    <view>收货地址</view>
+    <image src="/static/img/arrow.png"></image>
+  </view>
+</view>
+<view class="item-box" style="height: auto;">
+  <view class="item-view" bindtap="toAboutUs">
+    <image src="/static/img/about.png"></image>
+    <view>关于我们</view>
+    <image src="/static/img/arrow.png"></image>
+  </view>
+</view>

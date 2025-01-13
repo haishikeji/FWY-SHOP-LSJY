@@ -1,0 +1,96 @@
+<!--pages/circlesDetail/circlesDetail.wxml-->
+<view class="head-box">
+  <image src="/static/img/back.png" bindtap="backPge"></image>
+  <image src="{{info.headImg}}" data-userid="{{info.userId}}" catchtap="toPersonHome"></image>
+  <text data-userid="{{info.userId}}" catchtap="toPersonHome">{{info.nickName}}</text>
+</view>
+<view class="kong"></view>
+
+<view class="img-box">
+  <swiper class="img-box-swiper" current="{{bannerIndex}}" bindchange="bindchange" style="{{scale<1?'height:1000rpx':(scale>1?'height:562rpx':'')}}">
+    <swiper-item class="box-swiper-item" wx:for="{{info.imgUrlList}}" wx:key="item" bindtap="previewMedia" data-index="{{index}}">
+      <image mode="aspectFit" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swiper-num" wx:if="{{info.imgUrlList.length>1}}">
+    {{bannerIndex+1}}/{{info.imgUrlList.length}}
+  </view>
+  <!-- <view class="swiper-dots" wx:if="{{info.imgUrlList.length>5}}">
+    <text wx:for="{{info.imgUrlList}}" wx:for-item="itemImg" wx:key="itemImg" style="{{bannerIndex==index?'background-color: #FF5700;':''}}"></text>
+  </view> -->
+  <view class="swiper-dots" wx:if="{{info.imgUrlList.length>5}}">
+    <text style="{{bannerIndex==0?'background-color: #FF5700;':''}} {{bannerIndex>2?'width:8rpx;height:8rpx':''}}"></text>
+    <text style="{{bannerIndex==1?'background-color: #FF5700;':''}}"></text>
+    <text style="{{bannerIndex>=2&&bannerIndex<=info.imgUrlList.length-3?'background-color: #FF5700;':''}}"></text>
+    <text style="{{bannerIndex==info.imgUrlList.length-2?'background-color: #FF5700;':''}}"></text>
+    <text style="{{bannerIndex==info.imgUrlList.length-1?'background-color: #FF5700;':''}} {{bannerIndex<info.imgUrlList.length-3?'width:8rpx;height:8rpx':''}}"></text>
+  </view>
+  <view class="swiper-dots" wx:elif="{{info.imgUrlList.length>1 && info.imgUrlList.length<=5}}">
+    <text wx:for="{{info.imgUrlList}}" wx:for-item="itemImg" wx:key="itemImg" style="{{bannerIndex==index?'background-color: #FF5700;':''}}"></text>
+  </view>
+</view>
+
+<view class="content">{{info.content ? info.content : ''}}</view>
+
+<view class="article-tag">
+  <view class="tag-item" wx:for="{{info.tagList}}" wx:for-item="itemTag" wx:key="itemTag">
+    <image src="/static/img/tag.png"></image>
+    <text>{{itemTag}}</text>
+  </view>
+</view>
+
+<view class="time">
+  {{info.createTime}} 发布于{{info.ipAddress}}
+</view>
+
+<view class="comment-head">
+  <text>评论</text>
+  <text></text>
+  <text hidden="{{commentList.length==0}}">{{info.commentCount}}</text>
+</view>
+
+<view hidden="{{commentList.length!=0}}" class="nonedata-style">
+  <image src="/static/img/hemaNo.png"></image>
+  <text>暂无数据</text>
+</view>
+
+<view class="comment-list" wx:for="{{commentList}}" wx:key="index" catchtap="tapReplyComment" bindlongpress="pressReplyComment" data-userid="{{item.userId}}" data-commentid="{{item.commentId}}" data-name="{{item.nickName}}">
+  <image src="{{item.headImg}}" data-userid="{{item.userId}}" catchtap="toPersonHome"></image>
+  <view style="{{index==commentList.length-1?'border-bottom:0':''}}">
+    <view class="comment-name">
+      <text data-userid="{{item.userId}}" catchtap="toPersonHome">{{item.nickName}}</text>
+      <text style="{{item.like?'color:#FF5700':''}}">{{item.likeCount}}</text>
+      <image wx:if="{{item.like}}" src="/static/img/like_s.png" bindtap="commentCellikeFun" data-commentid="{{item.commentId}}"></image>
+      <image wx:else src="/static/img/like_n.png" bindtap="commentlikeFun" data-commentid="{{item.commentId}}"></image>
+    </view>
+    <view class="comment-content">
+      <text wx:if="{{item.commentType==2}}">@{{item.atUserNickName}}</text>
+      {{item.comment}}
+    </view>
+    <text class="comment-time">{{item.createTime}} {{item.ipAddress}}</text>
+  </view>
+</view>
+
+<view class="reply-box">
+  <input type="text" placeholder="{{iptPla}}"	cursor-spacing="50"	always-embed="false" adjust-position="false" hold-keyboard="true" focus="{{focusStatus}}" value="{{iptValue}}" confirm-type="send" bindconfirm="sendComment" bindblur="iptBlurFun"/>
+  <image wx:if="{{info.like}}" src="/static/img/like_s.png" bindtap="contentCellikeFun"></image>
+  <image wx:else src="/static/img/like_n.png" bindtap="contentlikeFun"></image>
+  <text>{{info.likeCount}}</text>
+  <image src="/static/img/discuss.png" bindtap="iptFun"></image>
+  <text>{{info.commentCount}}</text>
+</view>
+
+<view hidden="{{handleStatus}}" class="handle-box">
+  <view catchtap="pressReplyComment" class="handle-bg"></view>
+  <view class="hadle-view">
+    <image catchtap="pressReplyComment" src="/static/img/close2.png"></image>
+    <view class="handle-item" catchtap="deleteComFun" hidden="{{deleteStatus}}">
+      <image src="/static/img/del.png"></image>
+      <text>删除</text>
+    </view>
+    <view class="handle-item" catchtap="toReport">
+      <image src="/static/img/jubao.png"></image>
+      <text>举报</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/beerStore/beerStore.wxml-->
+<view class="img-box">
+  <swiper class="img-box-swiper" current="{{bannerIndex}}" bindchange="bindchange">
+    <swiper-item class="box-swiper-item" wx:for="{{bannerData}}" wx:key="index">
+      <image src="{{item.imgUrl}}" bindtap="toUrl" data-url="{{item.jumpUrl}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swiper-num">
+    {{bannerIndex+1}}/{{bannerData.length}}
+  </view>
+</view>
+
+<view class="store-box" wx:for="{{storeList}}" wx:key="index">
+  <view>
+    <text>{{item.name}}</text>
+    <view class="store-ad" style="margin-bottom: 16rpx;">
+      <image src="/static/img/location.png"></image>
+      <text>{{item.address}}</text>
+    </view>
+    <view class="store-ad">
+      <image src="/static/img/time.png"></image>
+      <text>营业时间：{{item.openingHours}}-凌晨{{item.closingHours}}</text>
+    </view>
+  </view>
+  <text></text>
+  <view>
+    <text>{{item.distance}}</text>
+    <text>在售精酿</text>
+    <text>({{item.beerCount}}款)</text>
+  </view>
+</view>
+
+<view class="beer-more">- 更多线下门店·敬请期待 -</view>

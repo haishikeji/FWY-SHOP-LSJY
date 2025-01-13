@@ -1,0 +1,23 @@
+<!--pages/beerBox/beerBox.wxml-->
+<view class="box-list" wx:for="{{beerBoxList}}" wx:key="index" data-boxid="{{item.boxId}}" bindtap="toDetail">
+  <view class="box-head">
+    <image src="{{item.boxBg}}" mode=""/>
+    <text>{{item.boxName}}</text>
+  </view>
+  <view>
+    <view class="box-time">
+      <text>订购月份</text>
+      <text>{{item.currBoxNo}}</text>
+    </view>
+    <text></text>
+    <view class="box-time" style="margin-left: 72rpx;">
+      <text>截止时间</text>
+      <text>{{item.cutOffTime}}</text>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{beerBoxList.length==0}}" class="nonedata-style">
+  <image src="/static/img/hemaNo1.png"></image>
+  <text>还未开放精酿订购信息</text>
+</view>

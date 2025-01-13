@@ -1,0 +1,43 @@
+/* pages/messageDetail/messageDetail.wxss */
+page{
+  background-color: #F7F7F7;
+}
+.chat-box{
+  display: flex;
+  flex-direction: column;
+  width: 750rpx;
+  height: auto;
+}
+.chat-box>view:nth-child(1){
+  width: 750rpx;
+  height: 32rpx;
+  font-size: 26rpx;
+  font-family: Helvetica;
+  color: rgba(0,0,0,0.4);
+  line-height: 32rpx;
+  text-align: center;
+  margin: 48rpx 0 24rpx;
+}
+.chat-con{
+  display: flex;
+  flex-direction: row;
+}
+.chat-con>image:nth-child(1){
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin: 0 24rpx auto 32rpx;
+}
+.chat-con>text:nth-child(2){
+  width: 430rpx;
+  height: auto;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.87);
+  background-color: #fff;
+  line-height: 48rpx;
+  text-align: justify;
+  padding: 24rpx 32rpx;
+  border-radius: 12px;
+}

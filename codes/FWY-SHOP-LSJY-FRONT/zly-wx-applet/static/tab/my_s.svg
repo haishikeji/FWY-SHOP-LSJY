@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>my_s</title>
+    <g id="zly_v1.3.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的" transform="translate(-311.000000, -730.000000)">
+            <g id="TabMenu" transform="translate(0.000000, 722.000000)">
+                <g id="tab_04" transform="translate(295.000000, 0.000000)">
+                    <g id="my-" transform="translate(14.000000, 6.000000)">
+                        <rect id="Rectangle-Copy" fill-opacity="0.2" fill="#FF5B00" opacity="0" x="0" y="0" width="28" height="28"></rect>
+                        <g id="Group-6" transform="translate(2.000000, 2.000000)">
+                            <polygon id="Clip-4" fill="#FF0000" opacity="0" points="0 0 24 0 24 24 0 24"></polygon>
+                            <path d="M20.7487,20.9026 L3.2487,20.9026 L3.2487,18.0366 C3.2487,16.0326 4.9777,14.4026 7.1037,14.4026 L16.9747,14.4026 C19.0557,14.4026 20.7487,15.9986 20.7487,17.9596 L20.7487,20.9026 Z" id="Stroke-7" stroke="#FF5700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M16.2487,7.25 C16.2487,9.597 14.3467,11.5 11.9987,11.5 C9.6507,11.5 7.7487,9.597 7.7487,7.25 C7.7487,4.903 9.6507,3 11.9987,3 C14.3467,3 16.2487,4.903 16.2487,7.25 Z" id="Stroke-9" stroke="#FF5700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,108 @@
+<!--pages/beerBoxDetail/beerBoxDetail.wxml-->
+<view class="top-view" hidden="{{topViewStatus}}" style="height:{{navBarHeight}}px;background: {{beerBoxDetail.bgColor}};"></view>
+<image class="back" style="top:{{statusBar_top+4}}px;" src="/static/img/back.png" catchtap="backFun" />
+<image class="beer-bg" src="{{beerBoxDetail.detailBg}}" mode=""/>
+<view class="head-title">
+  <text>{{beerBoxDetail.boxName}}</text>
+  <text>¥</text>
+  <text>{{beerBoxDetail.price}}</text>
+</view>
+<view class="time">
+  <view class="box-time">
+    <text>订购月份</text>
+    <text>{{beerBoxDetail.boxNo}}</text>
+  </view>
+  <text></text>
+  <view class="box-time" style="margin-left: 64rpx;">
+    <text>截止时间</text>
+    <text>{{beerBoxDetail.cutOffTime}}</text>
+  </view>
+</view>
+<view class="content1">{{beerBoxDetail.title}}</view>
+<view class="content2">{{beerBoxDetail.details}}</view>
+<view class="des" bindtap="popoverFun">
+  <text>保障</text>
+  <text>·不支持7天无理由退货  ·不支持退换贷</text>
+  <image src="/static/img/arrow.png" mode=""/>
+</view>
+
+<view class="box">
+  <view class="item-title">
+    本期尖货
+  </view>
+  <view class="product-list" wx:for="{{beerBoxDetail.beerList}}" wx:key="index" data-pid="{{item.productId}}" bindtap="toBeerDetail">
+    <image src="{{item.beerImg}}" mode="aspectFill"/>
+    <view>
+      <text>{{item.name}}</text>
+      <view class="product-price">
+        <text>原价 ¥{{item.price}}</text>
+        <text></text>
+        <text>规格{{item.sp}}</text>
+      </view>
+      <view class="product-data">
+        <view class="data-item">
+          <text>麦芽浓度</text>
+          <text>{{item.plato}}°P</text>
+        </view>
+        <view class="data-item">
+          <text>酒精度</text>
+          <text>{{item.abv}}%vol</text>
+        </view>
+        <view class="data-item">
+          <text>苦度值</text>
+          <text>{{item.ibu}} IBU</text>
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+
+<view class="box">
+  <view class="item-title">
+    订阅说明
+  </view>
+  <view class="item-msg" wx:for="{{beerBoxDetail.desList}}" wx:key="index">
+    <text>{{index+1}}</text>
+    <text>{{item}}</text>
+  </view>
+</view>
+
+<view class="item-title">
+  温馨提示
+</view>
+<view class="item-msg">
+  <text>1</text>
+  <text>鲜啤罐装后，不能回桶，故不支持7天无理由退换，非质量问题不给予退换</text>
+</view>
+<view class="item-msg">
+  <text>2</text>
+  <text>未成年人和孕妇不得饮酒</text>
+</view>
+<view class="item-msg">
+  <text>3</text>
+  <text>酒后不能驾驶车辆</text>
+</view>
+<view class="item-msg">
+  <text>4</text>
+  <text>小酌怡情，亲朋好友共饮更欢乐</text>
+</view>
+
+<view class="buy-btn-empty"></view>
+<view class="buy-btn">
+  <text catchtap="toPay">立即订购 ¥{{beerBoxDetail.price}}</text>  
+</view>
+
+<view class="popover-view" hidden="{{popover_Status}}">
+  <view class="popover">
+    <view class="popover-title">
+      <text>服务说明</text>
+      <image bindtap="popoverFun" src="/static/img/close2.png" mode=""/>
+    </view>
+    <view class="popover-t">·不支持7天无理由退货</view>
+    <view class="popover-c">该商品属于特殊商品, 由于精酿啤酒是来自于酒厂新鲜灌装的, 不可回桶, 出于信息安全或者卫生等考虑, 暂不支持7天无理由退货</view>
+    <view class="popover-t">·不支持换货</view>
+    <view class="popover-c">酒水类食品, 出于信息安全或者卫生等考虑, 不支持换贷</view>
+    <view class="popover-t">·发票信息</view>
+    <view class="popover-c">由品讯平台提供发票, 发票将在订单签收后, 在后台申请并开出</view>
+  </view>
+</view>

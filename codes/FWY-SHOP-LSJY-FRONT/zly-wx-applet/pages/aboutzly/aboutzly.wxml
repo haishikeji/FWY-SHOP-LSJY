@@ -1,0 +1,11 @@
+   <!--pages/aboutzly/aboutzly.wxml-->
+<view class="box">
+  <image src="/static/img/bg.png"></image>
+  <image src="/static/img/back.png" bindtap="back"></image>
+  <image src="/static/img/logo2.png"></image>
+  <view class="con">品讯是一个精酿知识社区、鲜啤订阅平台APP，致力于让人们认识精酿的本来面貌，品尝来自于全国各地酿酒厂生产的新鲜啤酒。美丽的色泽、浓郁的香气、细腻的口感，用精酿啤酒中的"故事"向您缓缓道来。\n
+同时，平台开放分享、酒评科普、饮酒听故事、话题讨论，丰富多样的啤酒风格，也期望在此找到一种感同身受。\n
+品讯采用专利特色外带桶运输，支持全国快递到家，保鲜黑科技，品质有保障，让每一位用户在家中就可体验啤酒厂新鲜出桶的原滋原味精酿鲜啤。
+  </view>
+  <image class="iplogo" src="/static/img/iplogo.png"></image>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/test/test.wxml-->
+<view class="charts-box">
+  <canvas canvas-id="uxXiJSVkwzQtHtxxJadNKGaTRVZrgait" id="uxXiJSVkwzQtHtxxJadNKGaTRVZrgait" class="charts" bindtouchend="tap"/>
+  <view class="chart-tips">
+    <view class="charts-tip">
+      <span style="background: #FFA100;"></span><span>当前</span>
+    </view>
+    <view class="charts-tip" style="margin-left: 64rpx;">
+      <span style="background: #258AFB;"></span><span>平均</span>
+    </view>
+  </view>
+</view>

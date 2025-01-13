@@ -1,0 +1,79 @@
+<!--pages/circles/circles.wxml-->
+<view class="shop-head">
+  <view class="page-title">
+    <text>气泡广场</text>
+    <text></text>
+  </view>
+  <view class="tab-box">
+    <view class="tab-item" bindtap="bindItem" data-id="1">
+      <text style="{{parmas.contListType==1?'color: #FF5700':''}}">最新</text>
+      <text style="{{parmas.contListType==1?'background-color: #FF5700':''}}"></text>
+    </view>
+    <view class="tab-item" bindtap="bindItem" data-id="3">
+      <text style="{{parmas.contListType==3?'color: #FF5700':''}}">人气</text>
+      <text style="{{parmas.contListType==3?'background-color: #FF5700':''}}"></text>
+    </view>
+    <view class="tab-item" bindtap="bindItem" data-id="2">
+      <text style="{{parmas.contListType==2?'color: #FF5700':''}}">点评</text>
+      <text style="{{parmas.contListType==2?'background-color: #FF5700':''}}"></text>
+    </view>
+  </view>
+</view>
+<view class="kong"></view>
+
+<view class="add-btn" bindtap="toaddArticle">
+  <image src="/static/img/addCircles.png"></image>
+</view>
+
+<!-- <view class="article-box" wx:for="{{contentList}}" wx:key="contentId">
+  <view class="article-head">
+    <image src="{{item.headImg}}"></image>
+    <text>{{item.nickName}}</text>
+    <image catchtap="handleShow" data-cid="{{item.contentId}}" src="/static/img/more.png"></image>
+  </view>
+  <view class="img-box" style="{{item.scale<1?'height:1000rpx':(item.scale>1?'height:562rpx':'')}}">
+    <image mode="aspectFill" src="{{item.imgUrlList[0]}}" style="width: 750rpx;height: auto;margin: 0 auto;" catchtap="toCirclesDetail" data-cid="{{item.contentId}}"></image>
+    <view wx:if="{{item.imgUrlList.length>1}}" class="swiper-num">
+      {{item.imgUrlList.length}}图
+    </view>
+  </view>
+  <view class="article-take">
+    <image class="take-dianzan" src="/static/img/like_s.png" wx:if="{{item.like}}" bindtap="contentCellikeFun" data-cid="{{item.contentId}}" data-idx="{{index}}"></image>
+    <image class="take-dianzan" src="/static/img/like_n.png" wx:else bindtap="contentlikeFun" data-cid="{{item.contentId}}" data-idx="{{index}}"></image>
+    <text class="take-dianzan-num">{{item.likeCount}}</text>
+    <image class="take-msg" src="/static/img/discuss.png" catchtap="toCirclesDetail" data-cid="{{item.contentId}}"></image>
+    <text class="take-dianzan-num">{{item.commentCount}}</text>
+    <button open-type="share" class="take-share-box" data-item="{{item}}">
+      <image class="take-share" src="/static/img/share.png"></image>
+    </button>
+  </view>
+  <view class="article-content" catchtap="toCirclesDetail" data-cid="{{item.contentId}}">{{item.content ? item.content : ''}}</view>
+  <view class="article-tag">
+    <view class="tag-item" wx:for="{{item.tagList}}" wx:for-item="itemTag" wx:key="itemTag">
+      <image src="/static/img/tag.png"></image>
+      <text>{{itemTag}}</text>
+    </view>
+  </view>
+</view> -->
+<import src="../template/template.wxml"/>
+<template is="contentList" data="{{contentList}}"/>
+
+<view hidden="{{contentList.length!=0}}" class="nonedata-style">
+  <image src="/static/img/hemaNo.png"></image>
+  <text>暂无数据</text>
+</view>
+
+<view hidden="{{handleStatus}}" class="handle-box">
+  <view catchtap="handleShow" class="handle-bg"></view>
+  <view class="hadle-view">
+    <image catchtap="handleShow" src="/static/img/close2.png"></image>
+    <!-- <view class="handle-item">
+      <image src="/static/img/nolike.png"></image>
+      <text>不感兴趣</text>
+    </view> -->
+    <view class="handle-item" catchtap="toReport">
+      <image src="/static/img/jubao.png"></image>
+      <text>举报</text>
+    </view>
+  </view>
+</view>

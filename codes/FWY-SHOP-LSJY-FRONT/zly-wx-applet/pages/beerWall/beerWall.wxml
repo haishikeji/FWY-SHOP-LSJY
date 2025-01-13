@@ -1,0 +1,50 @@
+<!--pages/beerShop/beerShop.wxml-->
+<view class="shop-head">
+  <view class="page-title">
+    <text>精酿鲜啤</text>
+    <text></text>
+  </view>
+  <view class="head-box">
+    <view class="head-view" bindtap="bindHead" data-id="1">
+      <text style="{{head_item==1?'color:#FF5700':''}}">风格</text>
+      <image hidden="{{head_item==1}}" src="/static/img/arrow_down.png"></image>
+      <image hidden="{{head_item!=1}}" src="/static/img/arrow_up.png"></image>
+    </view>
+    <view class="head-view" bindtap="bindHead" data-id="2">
+      <text style="{{head_item==2?'color:#FF5700':''}}">酿酒厂</text>
+      <image hidden="{{head_item==2}}" src="/static/img/arrow_down.png"></image>
+      <image hidden="{{head_item!=2}}" src="/static/img/arrow_up.png"></image>
+    </view>
+  </view>
+</view>
+<view class="kong"></view>
+
+<view hidden="{{!choice_show}}" class="choice-show" catchtap="choiceShow">
+  <view wx:if="{{head_item==1}}" class="choice-view">
+    <view class="choice-box" wx:for="{{styleList}}" wx:key="beerTypeId" catchtap="chooseStyle" data-id="{{item.beerTypeId}}">
+      <text style="{{beerTypeId==item.beerTypeId?'color:#FF5700':''}}">{{item.beerTypeName}}</text>
+      <image style="{{beerTypeId==item.beerTypeId?'display:block':''}}" src="/static/img/choose.png"></image>
+    </view>
+  </view>
+  <view wx:if="{{head_item==2}}" class="choice-view">
+    <view class="choice-box" wx:for="{{breweryTagList}}" wx:key="breweryId" catchtap="chooseBrewery" data-id="{{item.breweryId}}">
+      <text style="{{breweryId==item.breweryId?'color:#FF5700':''}}">{{item.breaweryName}}</text>
+      <image style="{{breweryId==item.breweryId?'display:block':''}}" src="/static/img/choose.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="beer-item" wx:for="{{productDataList}}" wx:key="index" data-pid="{{item.productId}}" bindtap="toBeerDetail">
+  <image mode="aspectFill" src="{{item.coverImgUrl}}"></image>
+  <text>{{item.name}}</text>
+  <view class="beer-origin">
+    <image src="{{item.breweryLogo}}"></image>
+    <text>{{item.breweryName}}</text>
+    <text>{{item.breweryPlace}}</text>
+  </view>
+</view>
+
+<view hidden="{{productDataList.length!=0}}" class="nonedata-style">
+  <image src="/static/img/hemaNo.png"></image>
+  <text>暂无数据</text>
+</view>

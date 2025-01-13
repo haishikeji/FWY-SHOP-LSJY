@@ -1,0 +1,9 @@
+<!--custom-tab-bar/index.js.wxml-->
+<view class="tab-bar">
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <image src="{{selected == index ? item.selectedIconPath : item.iconPath}}"></image>
+    <view style="color: {{selected == index ? selectedColor : color}}">{{item.text}}</view>
+    <text wx:if="{{index==3 && unreadMsgNum>0}}"></text>
+  </view>
+</view>
+ 

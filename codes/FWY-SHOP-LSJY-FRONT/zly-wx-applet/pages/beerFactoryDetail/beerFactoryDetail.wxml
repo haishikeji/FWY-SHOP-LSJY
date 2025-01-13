@@ -1,0 +1,3 @@
+<!--pages/beerFactoryDetail/beerFactoryDetail.wxml-->
+<web-view src="http://shop-detail.local.huiminbangfu.top:8007/#/"></web-view>
+<!--<web-view src="http://*****************/factory-detail/#/"></web-view>-->

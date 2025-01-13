@@ -1,0 +1,57 @@
+<!--pages/badges/badges.wxml-->
+<view style="{{tabItem==1?'background-color: #6171A6':'background-color: #5790AE'}}">
+  <view class="head">
+    <image src="/static/img/back.png" bindtap="backPge"></image>
+    <image src="/static/logo.png"></image>
+    <text>***精酿</text>
+  </view>
+  <view class="badges-tab">
+    <view class="tab-item" bindtap="swicthTab" data-tab="1">
+      <text style="{{tabItem==1?'background-color: #FF5700':''}}"></text>
+      <text style="{{tabItem==1?'color: #FF5700':''}}">成就徽章</text>
+    </view>
+    <view class="tab-item" bindtap="swicthTab" data-tab="2">
+      <text style="{{tabItem==2?'background-color: #FF5700':''}}"></text>
+      <text style="{{tabItem==2?'color: #FF5700':''}}">精酿徽章</text> 
+    </view>
+  </view>
+  <view class="badges-box">
+    <view class="badges-head">
+      <text>{{tabItem==1?'成就':'酒单'}}徽章 <text style="color: #FF5700;">04</text>/20</text>
+      <text bindtap="rulesShow">徽章规则</text>
+      <image bindtap="rulesShow" src="/static/img/arrow.png"></image>
+    </view>
+    <view class="badges-list">
+      <view class="badges-items" wx:for="{{7}}" wx:key="index">
+        <image src="/static/origin.png" style="opacity: 0.3;"></image>
+        <text>点评大师</text>
+        <view class="badges-lock">
+          <image src="/static/img/lockBadges.png"></image>
+          <text>未获得</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view hidden="{{rulesStatus}}" class="rules-box">
+  <view catchtap="rulesShow" class="rules-bg"></view>
+  <view class="rules-view">
+    <view class="rules-title">
+      <text>徽章规则</text>
+      <image src="/static/img/close3.png" catchtap="rulesShow"></image>
+    </view>
+    <view class="rules-item">
+      1. 完成20条以上评论，即可获得“点评大师”称号；连续签到30天，即可点亮“签到达人”徽章；在本平台品过16款以上精酿，即可点亮“品酒大师”称号。
+    </view>
+    <view class="rules-item">
+      2. 完成20条以上评论，即可获得“点评大师”称号；连续签到30天，即可点亮“签到达人”徽章；
+    </view>
+    <view class="rules-item">
+      3. 在本平台品过16款以上精酿，即可点亮“品酒大师”称号。
+    </view>
+    <view class="rules-item">
+      4. 完成20条以上评论，即可获得“点评大师”称号；连续签到30天，即可点亮“签到达人”徽章。
+    </view>
+  </view>
+</view>

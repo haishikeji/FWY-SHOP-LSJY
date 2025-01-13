@@ -1,0 +1,170 @@
+<!--pages/beerDetail/beerDetail.wxml-->
+<wxs src="/utils/filter.wxs" module="filter" />
+
+<view class="img-box">
+  <swiper class="img-box-swiper" current="{{bannerIndex}}" bindchange="bindchange">
+    <swiper-item class="box-swiper-item" wx:for="{{beerData.imgUrls}}" wx:key="index" bindtap="previewMedia" data-index="{{index}}">
+      <image mode="widthFix" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swiper-num" wx:if="{{beerData.imgUrls.length>1}}">
+    {{bannerIndex+1}}/{{beerData.imgUrls.length}}
+  </view>
+</view>
+
+<view class="name-box">
+  <text>{{beerData.beerInfo.beerName}}</text>
+  <text>{{beerData.beerInfo.beerEnName}}</text>
+</view>
+
+<view class="card-box" style="margin: 48rpx 0 56rpx;">
+  <view class="card-item">
+    <image src="/static/img/maiya.png"></image>
+    <text>{{beerData.beerInfo.plato?beerData.beerInfo.plato:'N/A'}}°P</text>
+    <text>麦芽浓度</text>
+  </view>
+  <view class="card-item">
+    <image src="/static/img/alcohol.png"></image>
+    <text>{{beerData.beerInfo.abv?beerData.beerInfo.abv:'N/A'}}%vol</text>
+    <text>酒精度</text>
+  </view>
+  <view class="card-item">
+    <image src="/static/img/bitterness.png"></image>
+    <text>{{beerData.beerInfo.ibu?beerData.beerInfo.ibu:'N/A'}} IBU</text>
+    <text>苦度值</text>
+  </view>
+</view>
+<view class="card-box" style="padding-bottom: 48rpx;border-bottom: 24rpx solid #F5F5F5;">
+  <view class="card-item">
+    <image src="/static/img/style.png"></image>
+    <text>{{beerData.beerInfo.typeName}}</text>
+    <text>精酿风格</text>
+  </view>
+  <view class="card-item">
+    <image src="/static/img/brand.png"></image>
+    <text>{{beerData.beerInfo.brewery}}</text>
+    <text>酿酒厂</text>
+  </view>
+  <view class="card-item">
+    <image src="/static/img/ad.png"></image>
+    <text>{{beerData.beerInfo.place}}</text>
+    <text>生产地</text>
+  </view>
+</view>
+
+<!-- <view class="charts-box">
+  <canvas canvas-id="uxXiJSVkwzQtHtxxJadNKGaTRVZrgait" id="uxXiJSVkwzQtHtxxJadNKGaTRVZrgait" class="charts" bindtouchend="tap"/>
+  <view class="chart-tips">
+    <view class="charts-tip">
+      <span style="background: #FFA100;"></span><span>当前</span>
+    </view>
+    <view class="charts-tip" style="margin-left: 64rpx;">
+      <span style="background: #258AFB;"></span><span>平均</span>
+    </view>
+  </view>
+</view> -->
+
+<view class="introduce-box">
+  <view>
+    <text></text>
+    <text>基本介绍</text>
+  </view>
+  <view class="introduce-view">{{beerData.beerInfo.introduce ? beerData.beerInfo.introduce : '无'}}</view>
+</view>
+
+<view class="introduce-box">
+  <view>
+    <text></text>
+    <text>酒厂信息</text>
+  </view>
+  <view class="beer-box">
+    <image src="{{beerData.beerInfo.breweryLogo}}"></image>
+    <view class="beer-name">
+      <text>{{beerData.beerInfo.brewery}}</text>
+      <text>{{beerData.beerInfo.place}}</text>
+    </view>
+    <view class="beer-btn" hidden>详情</view>
+  </view>
+</view>
+
+<view class="introduce-box">
+  <view>
+    <text></text>
+    <text>啤酒参数</text>
+  </view>
+  <view class="params-view">
+    <text>产品名称</text>
+    <text>{{beerData.beerInfo.beerName}}</text>
+  </view>
+  <view class="params-view">
+    <text>精酿风格</text>
+    <text>{{beerData.beerInfo.typeName}}</text>
+  </view>
+  <view class="params-view">
+    <text>原料</text>
+    <text>{{beerData.beerInfo.materialList}}</text>
+  </view>
+  <view class="params-view">
+    <text>麦芽浓度</text>
+    <text>{{beerData.beerInfo.plato}}°P</text>
+  </view>
+  <view class="params-view">
+    <text>酒精度</text>
+    <text>≥ {{beerData.beerInfo.abv}}%vol</text>
+  </view>
+  <view class="params-view">
+    <text>适用场景</text>
+    <text>约会、自饮、送礼、宴请、聚餐</text>
+  </view>
+  <view class="params-view">
+    <text>产地</text>
+    <text>{{beerData.beerInfo.place}}</text>
+  </view>
+  <view class="params-view">
+    <text>规格</text>
+    <text>{{beerData.sp}}</text>
+  </view>
+  <view class="params-view">
+    <text>保质期</text>
+    <text>{{beerData.exp}}</text>
+  </view>
+  <view class="params-view">
+    <text>贮存条件</text>
+    <text>{{beerData.storage}}</text>
+  </view>
+  <view class="params-view">
+    <text>温馨提示</text>
+    <text>1. 未满18周岁的用户请勿购买本商品。2. 孕妇请勿饮酒。3. 酒后请勿驾车。</text>
+  </view>
+</view>
+
+<cover-view class="btn-view">
+  <cover-view class="touch-view" bindtap="wantDrinkFun">
+    <cover-view class="touch-img">
+      <cover-image src="/static/img/drink.png"></cover-image>
+      <cover-view hidden="{{beerData.wantDrinkNum==0}}" style="{{beerData.wantDrinkNum>9?'padding: 0px 4rpx; border-radius: 24rpx':''}}">{{filter.wantDrinkNum(beerData.wantDrinkNum)}}</cover-view>
+    </cover-view>
+    <cover-view class="touch-text">想喝</cover-view>
+  </cover-view>
+  <cover-view class="touch-view" bindtap="toCircles" data-name="{{beerData.beerInfo.beerName}}">
+    <cover-view class="touch-img">
+      <cover-image src="/static/img/discuss.png"></cover-image>
+      <cover-view hidden="{{beerData.commentNum==0}}" style="{{beerData.wantDrinkNum>9?'padding: 0px 4rpx; border-radius: 24rpx':''}}">{{filter.wantDrinkNum(beerData.commentNum)}}</cover-view>
+    </cover-view>
+    <cover-view class="touch-text">点评</cover-view>
+  </cover-view>
+  <cover-view class="add-btn" bindtap="goStore">到店品鉴</cover-view>
+  <cover-view class="buy-btn" bindtap="goOrder">快递到家</cover-view>
+</cover-view>
+
+<view class="block"></view>
+
+<view class="nosale-bg" hidden="{{nosaleStatus}}">
+  <view class="nosale-view">
+    <image src="/static/img/close.png" bindtap="nosaleClose"></image>
+    <image src="/static/img/hema.png"></image>
+    <text>此款酒暂未开放售卖</text>
+    <text>点击“想喝”提醒我们尽快上架</text>
+    <text bindtap="nosaleClose">好的，知道了</text>
+  </view>
+</view>

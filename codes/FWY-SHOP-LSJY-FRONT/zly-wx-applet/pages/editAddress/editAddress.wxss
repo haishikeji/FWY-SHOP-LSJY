@@ -1,0 +1,163 @@
+/* pages/editAddress/editAddress.wxss */
+page{
+  background-color: #F7F7F7;
+}
+.ad-item{
+  width: 750rpx;
+  height: auto;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+}
+.ad-item>text:nth-child(1){
+  width: 200rpx;
+  height: 44rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(0,0,0,0.87);
+  line-height: 44rpx;
+  text-align: left;
+  margin: 34rpx 0 34rpx 32rpx;
+}
+.ipt{
+  width: auto;
+  height: 44rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.6);
+  line-height: 44rpx;
+  margin: 34rpx 48rpx 34rpx 0;
+}
+.Fphone{
+  width: auto;
+  height: 44rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.6);
+  line-height: 44rpx;
+  margin: 34rpx 24rpx 34rpx 0;
+}
+.iptarea{
+  width: 470rpx;
+  height: auto;
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.6);
+  line-height: 44rpx;
+  margin: 34rpx 48rpx 34rpx 0;
+}
+.swBtn{
+  margin: auto 32rpx auto auto;
+}
+.adCity{
+  width: auto;
+  height: 44rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.4);
+  line-height: 44rpx;
+  margin: 34rpx 48rpx 34rpx 0;
+}
+.arrow{
+  width: 48rpx;
+  height: 48rpx;
+  margin: 32rpx 16rpx 32rpx auto;
+}
+.picBox{
+  width: 518rpx;
+  height: 112rpx;
+  display: flex;
+  flex-direction: row;
+}
+.save-view{
+  margin: 60rpx auto 34rpx;
+  width: 686rpx;
+  height: 90rpx;
+  background: rgba(0,0,0,0.87);
+  border-radius: 46rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 90rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
+}
+.delete{
+  margin: 34rpx;
+  width: 684rpx;
+  height: 88rpx;
+  line-height: 90rpx;
+  border-radius: 46rpx;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  font-size: 34rpx;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
+  letter-spacing: 2rpx;
+  text-align: center;
+  margin-bottom: env(safe-area-inset-bottom);
+}
+.del-view{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.del-box{
+  width: 590rpx;
+  height: 292rpx;
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  display: flex;
+  flex-direction: column;
+}
+.del-box>text:nth-child(1){
+  width: 590rpx;
+  height: 52rpx;
+  font-size: 38rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(0,0,0,0.87);
+  line-height: 52rpx;
+  text-align: center;
+  margin: 56rpx 0;
+}
+.del-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 32rpx 48rpx;
+}
+.del-btn>text:nth-child(1){
+  width: 245rpx;
+  height: 77rpx;
+  border-radius: 48rpx;
+  border: 3rpx solid #FF5700;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FF5700;
+  line-height: 77rpx;
+  text-align: center;
+}
+.del-btn>text:nth-child(2){
+  width: 248rpx;
+  height: 80rpx;
+  background: #FF5700;
+  border-radius: 48rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 80rpx;
+  text-align: center;
+}

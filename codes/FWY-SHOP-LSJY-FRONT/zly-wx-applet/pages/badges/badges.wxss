@@ -1,0 +1,225 @@
+/* pages/badges/badges.wxss */
+.head{
+  width: 750rpx;
+  height: 380rpx;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.head>image:nth-child(1){
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 108rpx;
+  left: 16rpx;
+}
+.head>image:nth-child(2){
+  width: 132rpx;
+  height: 132rpx;
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+  margin-bottom: 16rpx;
+  margin-top: 132rpx;
+}
+.head>text:nth-child(3){
+  width: auto;
+  height: 48rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 48rpx;
+  margin-bottom: 20rpx;
+}
+.badges-tab{
+  width: 702rpx;
+  height: 96rpx;
+  background: #F7F7F7;
+  border-radius: 4px 4px 0px 0px;
+  margin: 0 24rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tab-item{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 351rpx;
+  height: 96rpx;
+}
+.tab-item>text:nth-child(1){
+  width: 48rpx;
+  height: 2px;
+  background: #F7F7F7;
+  border-radius: 1px;
+  margin-top: 22rpx;
+}
+.tab-item>text:nth-child(2){
+  width: 240rpx;
+  height: 44rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.87);
+  line-height: 44rpx;
+  text-align: center;
+}
+.badges-box{
+  width: 702rpx;
+  min-height: 1148rpx;
+  background: #FFFFFF;
+  margin: 0 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+.badges-head{
+  width: 702rpx;
+  height: 44rpx;
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.badges-head>text:nth-child(1){
+  width: auto;
+  height: 44rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(0,0,0,0.87);
+  line-height: 44rpx;
+  margin-left: 40rpx;
+  margin-right: auto;
+}
+.badges-head>text:nth-child(2){
+  width: auto;
+  height: 44rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.4);
+  line-height: 44rpx;
+}
+.badges-head>image:nth-child(3){
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 24rpx;
+}
+.badges-list{
+  width: 672rpx;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 64rpx 16rpx;
+}
+.badges-items{
+  position: relative;
+  width: 144rpx;
+  height: 204rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 0 40rpx 64rpx;
+}
+.badges-items>image:nth-child(1){
+  width: 144rpx;
+  height: 144rpx;
+  border-radius: 50%;
+  margin-bottom: 16rpx;
+}
+.badges-items>text:nth-child(2){
+  width: 144rpx;
+  height: 44rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.87);
+  line-height: 44rpx;
+  text-align: center;
+}
+.badges-lock{
+  position: absolute;
+  top: 108rpx;
+  left: 14rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 116rpx;
+  height: 36rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 2px 0px rgba(196,196,196,0.4);
+  border-radius: 9px;
+}
+.badges-lock>image:nth-child(1){
+  width: 24rpx;
+  height: 24rpx;
+}
+.badges-lock>text:nth-child(2){
+  width: 64rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #3A51A6;
+  line-height: 28rpx;
+}
+.rules-box{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 888;
+}
+.rules-bg{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.6);
+}
+.rules-view{
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  width: 750rpx;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 16px 16px 0px 0px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.rules-title{
+  width: 654rpx;
+  height: 52rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 48rpx 48rpx 32rpx;
+}
+.rules-title>text:nth-child(1){
+  width: auto;
+  height: 52rpx;
+  font-size: 38rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(0,0,0,0.87);
+  line-height: 52rpx;
+}
+.rules-title>image:nth-child(2){
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: -4rpx;
+  margin-right: -8rpx;
+}
+.rules-item{
+  margin: 0 48rpx;
+  width: 654rpx;
+  height: auto;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0,0,0,0.6);
+  line-height: 56rpx;
+  margin-bottom: 56rpx;
+}

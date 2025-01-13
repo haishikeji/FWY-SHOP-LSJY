@@ -1,0 +1,21 @@
+<!--pages/mineLike/mineLike.wxml-->
+<view class="comment-list" wx:for="{{dataList}}" wx:key="index" catchtap="toDetail" data-cid="{{item.outBusinessId}}">
+  <image src="{{item.sender.headImg}}"></image>
+  <view>
+    <view class="comment-name">
+      <text>{{item.sender.nickName}}</text>
+    </view>
+    <view class="comment-content">
+      点赞了你的{{item.srcType==2?'圈子':'评论'}}
+    </view>
+    <text class="comment-time">{{item.createTime}} {{item.sender.ipAddress}}</text>
+  </view>
+  <view class="action-img">
+    <image mode="aspectFill" src="{{item.actionImg}}"></image>
+  </view>
+</view>
+
+<view hidden="{{dataList.length!=0}}" class="nonedata-style">
+  <image src="/static/img/hemaNo.png"></image>
+  <text>暂无数据</text>
+</view>
